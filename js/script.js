@@ -20,24 +20,45 @@ farli anche in un secondo momento.*/
 //Ma prima verificare che non siano uguali agli elementi già facenti parte dell'array.
 
 //funzione per generare 1 numero casuale da 1 a 100:
-function numRandomPc (min, max){
+function numRandom (min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-console.log(numRandomPc(1, 100));
+console.log(numRandom(1, 100));
 
 //ora il for per generarne 16, dunque un contatore:
 //e pushare questi 16 numeri 1 alla volta nel loro array ma SOLO se non sono uguali ad un itemArray esistente;
 var arrayPc = [];
 console.log(arrayPc);
 
-for (var i = 0; i < 16; i++){
-    var itemArrayPc = numRandomPc(1, 100);
-    arrayPc.push(itemArrayPc);
-    console.log(itemArrayPc);   
+//con il ciclo for non è possibile verificare che gli items dell'array siano o no doppioni, dunque...
+//ci vorrebbe un contatore che man mano lo verifichi...(while)
+
+while (arrayPc.length < 16) {
+    var i = 0;
+    var itemArrayPc = numRandom(1, 100);
+    if (itemArrayPc !== arrayPc[i]){
+        arrayPc.push(itemArrayPc);
+    }
+    i++;
 }
 
-//solo che così non è possibile verificare che gli items dell'array siano o no doppioni, dunque...
 
+//Ora bisogna chiedere all’utente per (100 - arrayPc.lenght) volte di inserire un numero alla volta compreso tra 1 e 100 però che sia univoco:
+var arrayUser = [];
+
+while (arrayUser.length < (100 - arrayPc.length)) {
+    var i = 0;
+    var itemArrayUser = prompt("Inserisci un numero da 1 a 100");
+    if itemArrayUser
+
+    
+    if (itemArrayUser !== arrayPc[i]){
+        document.getElementById("result").innerHTML = "Hai vinto!";
+    } else {
+        document.getElementById("result").innerHTML = "Hai perso!";
+    }
+    i++;
+}
 
 
 
