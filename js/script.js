@@ -12,10 +12,15 @@ Scriviamo prima cosa vogliamo fare passo passo in italiano, o in pseudo codice, 
 Ad esempio: Di cosa ho bisogno per generare i numeri? Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i
 dati giusti. Proviamo prima con pochi numeri, inserire 86 numeri ogni volta potrebbe essere un po’ scocciante :occhiolino: Le validazioni e i controlli possiamo 
 farli anche in un secondo momento.*/
+//------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 // PSEUDO CODICE:
-//Ciclo for per generare 16 numeri con Math.random() tra 1(min) e 100(max);
+//Ciclo for per generar 16 numeri con Math.random() tra 1(min) e 100(max);
 //Questi 16 numeri devono essere pushati in un array "numRandomPc"; 
 //Ma prima verificare che non siano uguali agli elementi già facenti parte dell'array.
 
@@ -44,16 +49,28 @@ while (arrayPc.length < 16) {
 
 
 //Ora bisogna chiedere all’utente per (100 - arrayPc.lenght) volte di inserire un numero alla volta compreso tra 1 e 100 però che sia univoco:
+// var arrayUser = [];
+
+// while (arrayUser.length < (100 - arrayPc.length)) {
+//     var i = 0;
+//     var itemArrayUser = prompt("Inserisci un numero da 1 a 100");
+//     if itemArrayUser
+
+    
+//     if (itemArrayUser !== arrayPc[i]){
+//         document.getElementById("result").innerHTML = "Hai vinto!";
+//     } else {
+//         document.getElementById("result").innerHTML = "Hai perso!";
+//     }
+//     i++;
+// }
 var arrayUser = [];
 
 while (arrayUser.length < (100 - arrayPc.length)) {
     var i = 0;
-    var itemArrayUser = prompt("Inserisci un numero da 1 a 100");
-    if itemArrayUser
-
-    
+    var itemArrayUser = prompt("Scegli un numero da 1 a 100");
     if (itemArrayUser !== arrayPc[i]){
-        document.getElementById("result").innerHTML = "Hai vinto!";
+        arrayUser.push(itemArrayUser);
     } else {
         document.getElementById("result").innerHTML = "Hai perso!";
     }
