@@ -94,25 +94,28 @@ while (computerNums.length < 16) {
 
 console.log("Numeri generati dal Computer", computerNums);
 
-var userNums = []; //la lunghezza di questo array sarà il nostro score.
+var userNums = []; //Da questo array ricaveremo il nostro punteggio.
 var gameOver = false; //sconfitta.
 
-while (userNums.length < 84) {
-    selectedNum = parseInt(prompt("Inserisci un numero da 1 a 100"))
-    //todo: e se inserisce un numero maggiore di 100 o minore di 1?
-    //todo e se inserisce NaN?
-    if (!userNums.includes(selectedNum)) {
 
-        if (computerNums.includes(selectedNum)) {
-            alert("Mina beccata!")
-            gameOver = true;
-            break;
+while (userNums.length < 84 && (1 < selectedNum < 100)) {
+    var selectedNum = parseInt(prompt("Inserisci un numero da 1 a 100"));
+
+    if (selectedNum > 1 && selectedNum < 100){
+        
+        if (!userNums.includes(selectedNum)) {
+            
+            if (computerNums.includes(selectedNum)) {
+                alert("Mina beccata!")
+                gameOver = true;
+                break;
+            } else {
+                userNums.push(selectedNum);
+                console.log("[USER] Numeri inseriti dall\'utente", userNums);
+            }
         } else {
-            userNums.push(selectedNum);
-            console.log("[USER] Numeri inseriti dall\'utente", userNums);
+            alert("Occhio, è un numero duplicato. Riprova.")
         }
-    } else {
-        alert("Occhio, è un numero duplicato. Riprova.")
     }
 }
 
