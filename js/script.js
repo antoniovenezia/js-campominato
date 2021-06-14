@@ -16,8 +16,7 @@ farli anche in un secondo momento.*/
 
 
 
-
-
+/*
 
 // PSEUDO CODICE:
 //Ciclo for per generar 16 numeri con Math.random() tra 1(min) e 100(max);
@@ -71,11 +70,56 @@ while (arrayUser.length < (100 - arrayPc.length)) {
     var itemArrayUser = prompt("Scegli un numero da 1 a 100");
     if (itemArrayUser !== arrayPc[i]){
         arrayUser.push(itemArrayUser);
-    } else {
-        document.getElementById("result").innerHTML = "Hai perso!";
-    }
+    } else {}
     i++;
 }
 
+*/
 
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
+var computerNums = [];
+
+while (computerNums.length < 16) {
+    //generiamo numero random
+    var randomNum = getRandomNumber(1, 100);
+    //verifichiamo che non sia duplicato
+    if (!computerNums.includes(randomNum)) {
+        //pushiamo nell'array (se non è duplicato)
+        computerNums.push(randomNum);
+    }
+}
+
+console.log("Numeri generati dal Computer", computerNums);
+
+var userNums = []; //la lunghezza di questo array sarà il nostro score.
+var gameOver = false; //sconfitta.
+
+while (userNums.length < 84) {
+    selectedNum = parseInt(prompt("Inserisci un numero da 1 a 100"))
+    //todo: e se inserisce un numero maggiore di 100 o minore di 1?
+    //todo e se inserisce NaN?
+    if (!userNums.includes(selectedNum)) {
+
+        if (computerNums.includes(selectedNum)) {
+            alert("Mina beccata!")
+            gameOver = true;
+            break;
+        } else {
+            userNums.push(selectedNum);
+            console.log("[USER] Numeri inseriti dall\'utente", userNums);
+        }
+    } else {
+        alert("Occhio, è un numero duplicato. Riprova.")
+    }
+}
+
+if (!gameOver) {
+    alert("HAI VINTO!")
+} else {
+    alert("HAI PERSO");
+}
+
+alert("Il tuo punteggio è " + userNums.length)
