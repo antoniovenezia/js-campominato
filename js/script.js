@@ -101,10 +101,10 @@ var gameOver = false; //sconfitta.
 while (userNums.length < 84 && (1 < selectedNum < 100)) {
     var selectedNum = parseInt(prompt("Inserisci un numero da 1 a 100"));
 
-    if (isNaN(selectedNum) && selectedNum > 1 && selectedNum < 100){
-        
+    if (isNaN(selectedNum) && selectedNum > 1 && selectedNum < 100) {
+
         if (!userNums.includes(selectedNum)) {
-            
+
             if (computerNums.includes(selectedNum)) {
                 alert("Mina beccata!")
                 gameOver = true;
